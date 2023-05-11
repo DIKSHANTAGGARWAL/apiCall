@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <meta charset="UTF-8">
+    <title>Fetch Api</title>
+    <link rel="stylesheet" type="text/css" href="page.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <script src="script.js"></script>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-lg-2 col-sm-12">
+                <img class="wb" src="W&Blogo.png">
+            </div>
+
+
+            <div class="col-lg-8 col-sm-12 tophead">
+                <h1 class="tophead">Webops & Blockchain</h1>
+            </div>
+
+            <div class="col-lg-2 col-sm-12">
+                <img class="cfi" src="cfi.png">
+            </div>
+
+        </div>
+        <!-- <table class="table" cellspacing="28"  >
+    <div class="heading">
+      <tr class="heading">
+        <th>S.No</th>
+        <th>Date</th>
+       <th>Temperature(in°Cel)</th>
+     </tr>
+    </div>
+
+    <tr>
+      <td>1</td>
+      <td class="date">Day1</td> 
+      <td class="temp">T1</td>
+    </tr>
+
+    <tr>
+      <td>2</td>
+      <td class="date">Day2</td> 
+      <td class="temp">T2</td>
+    </tr>
+
+    <tr>
+      <td>3</td>
+      <td class="date">Day3</td> 
+      <td class="temp">T3</td>
+    </tr>
+
+    <tr>
+      <td>4</td>
+      <td class="date">Day4</td> 
+      <td class="temp">T4</td>
+    </tr>
+
+    <tr>
+      <td>5</td>
+      <td class="date">Day5</td> 
+      <td class="temp">T5</td>
+    </tr>
+
+    <tr>
+      <td>6</td>
+      <td class="date">Day6</td> 
+      <td class="temp">T6</td>
+    </tr>
+
+  </table>     -->
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+
+
+
+    </div>
+
+    <div class="row text-center col-lg-12">
+        <h2>Temperature</h2>
+    </div>
+
+    <div class="row text-center col-lg-12">
+        <h2 class="temp">...</h2>
+    </div>
+
+    <script>
+
+        let q = fetch("https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&start_date=2023-04-10&end_date=2023-04-15&daily=temperature_2m_max&timezone=GMT")
+        q.then((value1) => {
+            return value1.json()
+        }).then((value2) => {
+            const b = value2.daily.temperature_2m_max;
+
+            document.getElementsByClassName("temp")[0].innerHTML = b[2]
+        })
+    </script>
+
+</body>
+
+</html>
